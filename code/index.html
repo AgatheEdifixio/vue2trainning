@@ -1,0 +1,1553 @@
+<!-- <!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Squelette vue;JS</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js">
+  </script>
+</head>
+
+<body> -->
+<!--   {{chaine.split('').reverse().join('')}} <br>
+    {{date.getHours()}}:{{date.getMinutes()}}:{{date.getSeconds()}} <br>
+    inter : {{inter ? 'Vrai' : 'Faux'}} <br> 
+      {{heure}} {{heure2()}} <br>
+ 
+    <img :src="img">
+    <div v-bind:id=idDuDiv></div> 
+    <p v-text="texte"></p>
+    <p v-html="image"></p> 
+      nom: <span v-text="personne.nom"></span> <br>
+    age: <span v-text="personne.age"></span>-->
+<!--   <div id="app">
+    {{h}}:{{m}}:{{s}}
+    <input type="text" v-model="nom"> Bonjour {{nom}}
+
+  </div>
+  <script>
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        nom: 'avf',
+        chaine: 'Une simple chaine',
+        date: new Date,
+        inter: true,
+        hms: new Date(),
+        idDuDiv: 'lediv',
+        personne: {
+          nom: 'agathe',
+          age: 12
+        },
+        texte: 'unpeu de text',
+        h: '',
+        m: '',
+        s: '',
+        image: '<img src="https://upload.wikimedia.org/wikipedia/commons/c/c0/Fox_Broadcasting_Company_logo_%282019%29.svg">',
+        img: "data:image/jpeg;base64,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"
+      },
+      computed: {
+        heure: function () {
+          return this.hms.getHours() + ':' + this.hms.getMinutes() + ':' + this.hms.getSeconds();
+        }
+      },
+      methods: {
+        heure2: function () {
+          return this.hms.getHours() + ':' + this.hms.getMinutes() + ':' + this.hms.getSeconds();
+        },
+      }
+    });
+    setTimeout(function () {
+      vm.personne.age = 25;
+    }, 3000);
+
+    setInterval(function () {
+      var d = new Date();
+      vm.h = ('0' + d.getHours()).slice(-2);
+      vm.m = ('0' + d.getMinutes()).slice(-2);
+      vm.s = ('0' + d.getSeconds()).slice(-2);
+    })
+  </script>
+</body>
+
+</html> -->
+
+
+<!--  <!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Squelette vue;JS</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js">
+  </script>
+</head>
+<body>
+  <div id="app">
+  <input type="text" v-model="nom"> - bonjour {{ nom }}
+  <p>vous avez choisis : {{ville}}</p>
+  <select v-model="ville">
+    <option>Paris</option>
+    <option>Londres</option>
+    <option>Berlin</option>
+  </select>
+
+  <div style="white-space: pre-line;">{{multi}}</div>
+  <textarea v-model="multi" cols="40" rows="7">
+
+  </textarea>
+</div>
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        nom: '',
+        ville: '',
+        multi:''
+      }
+    })
+  </script>
+</body>
+</html>  -->
+
+
+<!-- <!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Squelette vue;JS</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js">
+  </script>
+</head>
+
+<body>
+  <div id="app">
+  <input type="text"  v-model="input1" v-on:keyup="recopie()"></input> <br>
+  <input type="text" v-bind:value="input2"></input>
+  </div>
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        input1: '',
+        input2: '',
+      },
+      methods: {
+        recopie: function(){
+          this.input2 = this.input1.toUpperCase();
+        }
+      }
+    })
+  </script>
+</body>
+
+</html> -->
+
+<!-- <!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Squelette vue;JS</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js">
+  </script>
+</head>
+<body>
+  <div id='app'>
+<input type="checkbox" value='html' v-model="cases">HTML</checkbox>
+<input type="checkbox" value='css' v-model="cases">CSS</checkbox>
+<input type="checkbox" value='js' v-model="cases">JS</checkbox>
+<p> cases cochées :  {{ cases }}</p>
+<input type="radio" value='html' v-model="langue">HTML</checkbox>
+<input type="radio" value='css' v-model="langue">CSS</checkbox>
+<input type="radio" value='js' v-model="langue">JS</checkbox>
+<p> langage préféré : {{ langue }}</p>
+  </div>
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        cases: [],
+        langue: ''
+      }
+    })
+  </script>
+</body>
+</html> -->
+
+<!-- CHAPITRE 16 -->
+
+<!-- <!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Squelette vue;JS</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js">
+  </script>
+</head>
+
+<body>
+  <div id='app'>
+    <div v-html="contenu[0]"></div>
+    <div v-html="contenu[1]"></div>
+
+  </div>
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        contenu: [
+          '<img src="data:image/jpeg;base64,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">',
+          '<table border><tr><th>Colonne1</th><th>Colonne2</th></tr>\
+            <tr><td>1</td><td>2</td></tr><tr><td>3</td><td>4</td></tr></table>'
+        ]
+      }
+    })
+  </script>
+</body>
+
+</html> -->
+
+<!-- <!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Squelette vue;JS</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js">
+  </script>
+</head>
+<body>
+  <div id="app">
+    Nombre de clics {{ compteur }}
+   <button v-on:click="compteur++">clicker ici</button> 
+    <button @click="compteur++">clicker ici</button>
+  </div>
+  <script>
+    new Vue({
+      el: '#app', 
+      data: {
+        compteur: 0
+      }
+    })
+  </script>
+</body>
+</html> -->
+
+
+<!-- CHAPITRE 18 / 19 
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Squelette vue;JS</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js">
+  </script>
+</head>
+<body>
+  <div id="app">
+  <input type="text" v-model="nom">
+  <input type="button" value="Bonjour" v-on:click="traitement('Bonjour')">
+  <input type="button" value="Hello" v-on:click="traitement('Hello')">
+  </div>
+  <script>
+    new Vue({
+      el: '#app', 
+      data: {
+      nom: ''
+      },
+      methods: {
+        traitement: function(text){
+          alert(text + ' ' + this.nom)
+        }
+      }
+    })
+  </script>
+</body>
+</html> -->
+
+<!-- CHAPITRE 20 
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Squelette vue;JS</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js">
+  </script>
+</head>
+<body>
+  <div id="app">
+    {{xy}}
+    <img src="data:image/jpeg;base64,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" v-on:mousemove="coord($event)">
+  </div>
+  <script>
+    new Vue({
+      el: '#app', 
+      data: {
+      xy: '',
+      },
+      methods: {
+        coord: function(ev){
+          this.xy = 'x=' +ev.offsetX + ', y='+ev.offsetY;
+        }
+      }
+    })
+  </script>
+</body>
+</html> -->
+
+<!-- CHAPITRE 21 
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Squelette vue;JS</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js">
+  </script>
+</head>
+<body>
+  <div id="app">
+    <div v-on:keydown="actionParent">
+      <input type="text" v-on:keydown.prevent.stop="action($event)">
+      <button v-on:click.once="action">cliquez ici </button>
+      <input type="text" v-on:keyup.code="action">
+    </div>
+    </div>
+  <script>
+    new Vue({
+      el: '#app', 
+      data: {
+      },
+      methods: {
+        action: function(ev){
+         console.log('evenement traité dans le input');
+        //ev.preventDefault();
+        //ev.stopPropagation();
+        },
+        actionParent: function(){
+          console.log('evenement propagé jusqu au div')
+        }
+      }
+    })
+  </script>
+</body>
+</html>  -->
+
+
+<!-- CHAPITRE 21 
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Squelette vue;JS</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js">
+  </script>
+</head>
+<body>
+  <div id="app">
+   <form>
+     <input type="number" v-model="nombre">
+     <input type="submit" v-on:click = "carre($event)">
+   </form>
+    </div>
+  <script>
+    new Vue({
+      el: '#app', 
+      data: {
+        nombre: null
+      },
+      methods: {
+        carre: function(ev){
+        ev.preventDefault();
+         this.nombre = this.nombre * this.nombre;
+        }
+      }
+    })
+  </script>
+</body>
+</html> -->
+
+
+<!--  CHAPITRE 23 
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Squelette vue;JS</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js">
+  </script>
+  <style>
+    .red{
+      color: red;
+    }
+    .black{
+      color: black;
+    }
+
+  </style>
+</head>
+<body>
+  <div id="app">
+<p> quel langage de prorgramme connaisez vous ? </p>
+<input type="text" v-model="langage">
+<input type="button" value="valider" v-on:click="traitement()"><br>
+{{ liste }}
+<ul>
+  <li v-for="(l, index) in liste">
+    <input type="checkbox" v-on:click="l.cac=!l.cac">
+    <span v-bind:class="{red:l.cac}">{{l.lang}}</span>
+ </li>
+</ul>
+
+    </div>
+  <script>
+    new Vue({
+      el: '#app', 
+      data: {
+       langage: '',
+       // tableau pour stocker tour a tour les langages
+       liste: [],
+       r: false,
+      },
+      methods: {
+        traitement: function(){
+          this.liste.push({lang: this.langage, cac: false});
+        }
+      }
+    })
+  </script>
+</body>
+</html>  -->
+<!-- 
+CHAPITRE 23 
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Squelette vue;JS</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js">
+  </script>
+</head>
+<body>
+  <div id="app">
+    <div v-for="(elem, index) in elems">
+      {{elem}}
+      <button v-on:click="supprime(index)">supprime</button>
+    </div>
+    </div>
+  <script>
+    new Vue({
+      el: '#app', 
+      data: {
+        elems: ['premier', 'deuxieme', 'troisieme', 'quatrieme']
+      },
+      methods: {
+        supprime: function(index){
+          this.elems.splice(index, 1)
+        }
+      }
+    })
+  </script>
+</body>
+</html> -->
+
+<!-- 
+CHAPITRE 24 
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Squelette vue;JS</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js">
+  </script>
+</head>
+<body>
+  <div id="app">
+   <input type="radio" value="click" v-model="choix" checked>Simple clic
+    <input type="radio" value="dblclick" v-model="choix" checked>Double clic<br>
+    <img v-bind:src="adresse" v-on:[choix]="change" width="200">
+    </div>
+  <script>
+    new Vue({
+      el: '#app', 
+      data: {
+        adresse: '/images/petitchats.jpg',
+      choix: 'click'
+      },
+      methods: {
+        change: function(){
+          if(this.adresse.indexOf('chats')!=-1)
+          this.adresse = '/images/petitchiens.jpg'
+          else
+          this.adresse = '/images/petitchats.jpg';
+        }
+      }
+    })
+  </script>
+</body>
+</html> -->
+
+<!-- 
+CHAPITRE 25 
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Squelette vue;JS</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js">
+  </script>
+</head>
+<body>
+
+  <div id="app">
+<ul v-for="p in personnes"> 
+<li>{{ p.nom }} {{p.prenom}} {{p.age}}</li>
+</ul>
+    </div>
+  <script>
+    new Vue({
+      el: '#app', 
+      data: {
+        personnes:[
+          {prenom: 'Agathe', nom: 'cake', age: 25}, 
+          {prenom: 'Ninon', nom: 'cake', age: 5}, 
+          {prenom: 'mahmut', nom: 'ceribas', age: 35}, 
+        ]      
+      },
+    })
+  </script>
+</body>
+</html> -->
+
+
+<!-- CHAPITRE 26
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Squelette vue;JS</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js">
+  </script>
+</head>
+
+<body>
+  <div id="app">
+    <input type="text" v-model="texte" v-on:keyup="action($event)">
+    <input type="button" value="cliquer ici" v-on:click="action($event)">
+  </div>
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+          texte: '',
+      },
+      methods: {
+        action: function(ev){
+          if(ev.key=='Enter' || ev.type == 'click'){
+            this.texte = this.texte.toUpperCase();
+          }
+        }
+      }
+    })
+  </script>
+</body>
+
+</html> -->
+<!-- 
+CHAPITRE 29
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Squelette vue;JS</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js">
+  </script>
+</head>
+
+<body>
+  <div id="app">
+   <p>sans v-once {{nombre}}</p>
+    <p v-once>avec v-once : {{nombre}}</p>
+    <button v-on:click="nombre++">incrémenter</button> 
+  </div>
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        nombre: 15,
+      },
+    })
+  </script>
+</body>
+
+</html> -->
+
+
+<!-- CHAPITRE 30
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Squelette vue;JS</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js">
+  </script>
+  <style>
+    .gras{
+      font-weight: bold;
+    }
+    .italique{
+      font-style: italic;
+    }
+    .souligne{
+      text-decoration: underline;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+   <input type="checkbox" v-on:click="g=!g">Gras
+   <input type="checkbox" v-on:click="i=!i">Italique
+   <input type="checkbox" v-on:click="s=!s">Souligné <br>
+   <div v-bind:class="{gras:g, italique:i, souligne:s}"> 
+     un peu de texte </div>
+  </div>
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        g: false, 
+        i: false, 
+        s: false,
+      },
+    })
+  </script>
+</body>
+</html> -->
+
+<!-- CHAPITRE 31
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Squelette vue;JS</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js">
+  </script>
+  <style>
+    .gras{
+      font-weight: bold;
+    }
+    .italique{
+      font-style: italic;
+    }
+    .souligne{
+      text-decoration: underline;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+  <div v-bind:style="{pcss1: ,pcss2: "></div>
+     un peu de texte </div>
+  </div>
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        g: false, 
+        i: false, 
+        s: false,
+      },
+    })
+  </script>
+</body>
+</html> -->
+
+<!-- CHAPITRE 32
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Squelette vue;JS</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js">
+  </script>
+</head>
+
+<body>
+  <div id="app">
+  Couleur: {{couleur}}
+  <select v-model="couleur">
+    <option value="black">noir</option>
+    <option value="red">rouge</option>
+    <option value="blue">bleu</option>
+    <option value="green">vert</option>
+  </select>
+Taille: {{taille}}
+  <select v-model="taille">
+    <option value=20px>20px</option>
+    <option value=25px>25px</option>
+    <option value=30px>30px</option>
+  </select>
+  <div v-bind:style="{color: couleur, fontSize: taille}">
+    Le lorem ipsum (également appelé faux-texte, lipsum, ou bolo bolo1) est </div>
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        couleur: 'black',
+        taille: '10px',
+      },
+    })
+  </script>
+</body>
+</html> -->
+
+<!-- CHAPITRE 33
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Squelette vue;JS</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js">
+  </script>
+</head>
+
+<body>
+  <div id="app">
+  <input v-model="langage"></input>
+  {{langage}}
+  <input type="button" value="ajouter" v-on:click="ajouter()">
+ 
+  <ul v-for="l in liste">
+   //important de bien récpérer le l.cac en particulier !!! 
+    <li>
+      <input type="checkbox" v-on:click="l.cac=!l.cac">
+      {{ l.lang }}
+    <span v-if="l.cac">est coché</span>
+    <span v-else>est décoché</span></li>
+  </ul>
+    </div>
+    
+</div>
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        langage: '',
+        liste: [],
+      },
+      methods: {
+        ajouter: function(){
+     
+          this.liste.push({lang: this.langage, cac: false});
+        }
+      }
+    })
+  </script>
+</body>
+</html> -->
+
+<!-- CHAPITRE 33
+<!DOCTYPE html>
+<html lang="fr">
+
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Squelette vue;JS</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js">
+  </script>
+</head>
+
+<body>
+  <div id="app">
+    <bonjour-loc></bonjour-loc>
+    </div>    
+</div>
+  <script>
+  var BonjourLocal = {
+    template: '<div>le composant local dit bonjour</div>'
+  }
+  new Vue({
+    el: '#app', 
+    //objet json faisant référence au nom du composant 
+    components: {'bonjour-loc': BonjourLocal}
+  })
+  </script>
+</body>
+</html> -->
+
+<!-- CHAPITRE 35
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Squelette vue;JS</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js">
+  </script>
+</head>
+
+<body>
+  <div id="app">   
+ <compteur></compteur>
+</div>
+  <script>
+Vue.component('compteur', {
+  data: function() {
+    return {
+      nbClics: 0
+    }
+  }, 
+  template : '<button v-on:click="nbClics++">{{nbClics}}</button>'
+})  
+  new Vue({
+    el: '#app', 
+  })
+  </script>
+</body>
+</html> -->
+
+<!--  CHAPITRE 35
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Squelette vue;JS</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js">
+  </script>
+</head>
+<body>
+  <div id="app">   
+    <rnd-loc></rnd-loc>
+</div>
+  <script>
+  var rndLoc = {
+    data: function() {
+      //ici on retourne un JSON 
+      return {
+        nombre: Math.floor(Math.random()*100 + 1)
+      }
+    },
+    methods: {
+      newNb: function() {
+        //attention synthaxe différente quand c'est une fonction 
+        this.nombre = Math.floor(Math.random()*100 + 1)
+      }
+    },
+    template: '<div>{{nombre}}<button v-on:click="newNb">click</button></div>'
+  }
+  new Vue({
+    el: '#app', 
+    components: {'rnd-loc': rndLoc}
+  })
+  </script>
+</body>
+</html>  -->
+
+<!-- CHAPITRE 36 props en local  -->
+<!-- <!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Squelette vue;JS</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js">
+  </script>
+</head>
+<body>
+  <div id="app">   
+<comp-loc param="Laura"></comp-loc>
+<comp-loc param="Agathe"></comp-loc>
+<comp-loc param="Pierre"></comp-loc>
+</div>
+  <script>
+  var Comp = {
+    template: '<div>hello : {{param}}</div>',
+    props: ["param"]
+  }
+  new Vue({
+    el: '#app', 
+    components: {'comp-loc': Comp}
+  })
+  </script>
+</body>
+</html>  -->
+
+<!-- CHAPITRE 36 props en global
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Squelette vue;JS</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js">
+  </script>
+</head>
+<body>
+  <div id="app">   
+<compglobal nom="Agathe"></compglobal>
+<compglobal nom="Emma"></compglobal>
+<compglobal nom="Jean"></compglobal> 
+</div>
+  <script>
+  Vue.component('compglobal', {
+    props: ['nom'],
+    template: '<div>Bonjour {{nom}}</div>'
+  })
+  new Vue({
+    el: '#app', 
+    
+  })
+  </script>
+</body>
+</html>  -->
+
+<!-- CHAPITRE 39
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Squelette vue;JS</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js">
+  </script>
+</head>
+<body>
+  <div id="app">   
+    <comp texte="un simple texte"></comp>
+</div>
+  <script>
+  Vue.component('comp', {
+    props: ['texte'],
+    template: '<div>{{maj}}</div>',
+    data: function(){
+      //creaton fonction qui retourne un object json 
+      return {
+        maj: this.texte.toUpperCase()
+      }
+    }
+  });
+  var vm = new Vue({
+    el: '#app', 
+    
+  })
+  </script>
+</body>
+</html>  -->
+
+<!-- <!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Squelette vue;JS</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js">
+  </script>
+</head>
+<body>
+  <div id="app">   
+    <rnd-loc max="10"></rnd-loc>
+    <rnd-loc max="100"></rnd-loc>
+    <rnd-loc max="1000"></rnd-loc>
+</div>
+  <script>
+  var rndLoc = {
+    data: function() {
+      //ici on retourne un JSON 
+      return {
+        nombre: Math.floor(Math.random()*this.max + 1)
+      }
+    },
+    props: ['max'],
+    template: '<div>{{nombre}}</div>'
+    
+  }
+  new Vue({
+    el: '#app', 
+    components: {'rnd-loc': rndLoc}
+  })
+  </script>
+</body>
+</html>   -->
+
+<!-- CHAPITRE 40 
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Squelette vue;JS</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js">
+  </script>
+</head>
+<body>
+  <div id="app">   
+  <taille v-bind:mess="message"></taille>
+</div>
+  <script>
+    Vue.component('taille', {
+      template: '<div>{{mess}}</div>',
+    
+      props: ['mess']
+    })
+  new Vue({
+    el: '#app', 
+    data: {
+      message: 'message de la vue pour le composant taille'
+    }
+  })
+  </script>
+</body>
+</html>   -->
+
+<!-- CHAPITRE 42 
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Squelette vue;JS</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js">
+  </script>
+</head>
+<body>
+  <div id="app"> 
+    
+ <bienvenue v-on:coucou="disBonjour"></bienvenue>
+</div>
+  <script>
+    Vue.component('bienvenue', {
+      //1 $emit déclenche un evenement => composant réagit avec un v-on (2) 
+      template: "<button v-on:click='$emit(\"coucou\")'>cliquez moi</button>"
+    })
+    
+  new Vue({
+    el: '#app', 
+    methods: {
+      //3 methode du parent 
+      disBonjour: function() {
+        alert("Le parent dit bonjour");
+      }
+    }
+  })
+  </script>
+</body>
+</html>   -->
+
+<!-- CHAPITRE 42 exercie
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Squelette vue;JS</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js">
+  </script>
+</head>
+<body>
+  <div id="app"> 
+    {{tot}}<br>
+ <compteur v-on:increm="total"></compteur>
+ <compteur v-on:increm="total"></compteur>
+ <compteur v-on:increm="total"></compteur>
+</div>
+  <script>
+Vue.component('compteur',{
+  //dans un composant data et une fonction qui renvoi un JSON 
+  data: function(){
+    return {
+      valeur: 0
+    }
+  },
+  template: '<button v-on:click="plusUn">{{valeur}}</button>',
+  methods: {
+    plusUn: function(){
+      this.valeur++;
+      this.$emit('increm');
+    }
+  }
+  
+});
+new Vue({
+  el: '#app', 
+  data: {
+    tot: 0
+  },
+  //chaque fois que l'evenement increm est detcté le total est +1
+  methods: {
+    total: function(){
+      this.tot++
+    }
+  }
+})
+  </script>
+</body>
+</html>   -->
+
+
+<!-- CHAPITRE 43
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Squelette vue;JS</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"> </script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"> </script>
+ 
+</head>
+<body>
+  <div id="app"> 
+
+<table>
+  <tr v-for="user in users">
+    <td><img v-bind:src="user.picture.medium"></td>
+    <td>
+      {{user.name.first}}  {{user.name.last}}<br>
+      {{user.email}}<br>
+      {{user.phone}}
+    </td>
+  </tr>
+</table>
+</div>
+  <script>
+    // 4 ajouter var vm pour stocker la réponse 
+var vm = new Vue({
+  el: '#app', 
+  data: {
+    url: 'https://randomuser.me/api/?results=3',
+    users: []
+  },
+  //hook created 
+  created: function(){
+    axios.get(this.url).then(function(reponse){
+      //1. stocker la réponse dans le tableau de users 
+       // 3 attention dans un hook this = window 
+     //ce code ne fonctionne pas => this.users = reponse.data.results;
+     //sotcker dans vm a la place
+     vm.users = reponse.data.results;
+    })
+  }
+})
+  </script>
+</body>
+</html>   -->
+
+<!-- CHAPITRE 44
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Squelette vue;JS</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"> </script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"> </script>
+
+</head>
+
+<body>
+  <div id="app">
+   
+    <t v-bind:users="donnes"></t>
+      </div>
+  <script>
+    //5 props usr qui permet de récupérer un utilisatur 
+    var un = {
+      template: '<tr>\
+                <td><img v-bind:src="usr.picture.medium"></td>\
+                <td>\
+                  {{usr.name.first}}  {{usr.name.last}}<br>\
+                  {{usr.email}}<br>\
+                  {{usr.phone}}\
+                  </td>\
+                  </tr>',
+      props: ['usr']
+    }
+    //4 définition du composant tous
+    // les props récupère les users pour les binder au tableau donnees 
+    var t = {
+      template: '<div><table><tr v-for="user in users"><un v-bind:usr="user"></un></table></div>',
+      props: ['users'],
+      components: {
+        'un': un
+      }
+
+    }
+
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        url: 'https://randomuser.me/api/?results=10',
+        donnes: []
+      },
+    /*   1. interroger l'api pour obtenir 10 utilisateur  */
+      created: function () {
+        axios.get(this.url).then(function (reponse) {
+          /* 2. réponse stockée dans tableau donnees  
+          sera utilisé par composant "tous" et "un" pour afficher la vue */
+          vm.donnes = reponse.data.results;
+        })
+      },
+      components: {
+        't': t
+      }
+    })
+  </script>
+</body>
+
+</html> -->
+
+<!-- CHAPITRE 45 transofrmer comp un et tous en globuayx
+
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Squelette vue;JS</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"> </script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"> </script>
+
+</head>
+
+<body>
+  <div id="app">
+   
+    <t v-bind:users="donnes"></t>
+      </div>
+  <script>
+    Vue.component('un', {
+      template: '<tr>\
+                <td><img v-bind:src="usr.picture.medium"></td>\
+                <td>\
+                  {{usr.name.first}}  {{usr.name.last}}<br>\
+                  {{usr.email}}<br>\
+                  {{usr.phone}}\
+                  </td>\
+                  </tr>',
+      props: ['usr']
+    });
+
+    Vue.component('t', {
+      template: '<div><table><tr v-for="user in users"><un v-bind:usr="user"></un></table></div>',
+      props: ['users'],
+      //déclaration du comp 'un' n'est plus nécéssaire car c'set un comp global
+    /*   components: {
+        'un': un
+      } */
+    });
+
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        url: 'https://randomuser.me/api/?results=10',
+        donnes: []
+      },
+      created: function () {
+        axios.get(this.url).then(function (reponse) {
+          vm.donnes = reponse.data.results;
+        })
+      },
+      //déclaration du comp 'tous' n'est plus nécéssaire car c'set un comp global
+  /*     components: {
+        't': t
+      } */
+    })
+  </script>
+</body>
+
+</html>  -->
+
+<!-- CHAPITRE 46
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Squelette vue;JS</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"> </script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"> </script>
+</head>
+<body>
+  <div id="app">
+    <art titre="Titre de l'article">
+      <template v-slot:texte>
+        <p>Texte de l'article</p>
+      </template>
+    <p> ce texte est intégré dans le slot défaut</p>
+  </art>
+  </div>
+  <script>
+    Vue.component('art', {
+      //j'indique que je veux utiliser le slot qui s'apelle "texte"
+      //la balise <p> renvoit au slot "default"
+      template: '<div><h2>{{titre}}</h2><slot name="texte"></slot><slot name="default"></slot></div>',
+      props: ['titre']
+    });
+    new Vue({
+      el: '#app', 
+    })
+  </script>
+</body>
+
+</html> -->
+
+<!-- CHAPITRE 49 filtres
+
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Squelette vue;JS</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"> </script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"> </script>
+</head>
+
+<body>
+  <div id="app">
+    <input type="text" v-model="texte">
+  
+    <div>Filtre global : {{texte | cap}}</div>
+    <div>Filtre local : {{texte | capitaliser}}</div>
+  </div>
+  <script>
+    //2 définir le filtre cap 
+    Vue.filter('cap', function (valeur) {
+      // afficher la premeire lettre de chaque mot en capital : 
+      // 1 mettre chaque mot l'input dans un tableau => tableau t dont chaque case contient un mot
+      var t = valeur.split(' ');
+      //2 parcourir le tableau t 
+      for (var i = 0; i < t.length; i++) {
+        t[i] = t[i].slice(0, 1).toUpperCase() + t[i].slice(1);
+      }
+      //3 join pour remettre les mots a la suite des autres et ajouter espace entre chque mot
+      return t.join(' ');
+    })
+    new Vue({
+      el: '#app',
+      data: {
+        texte: ''
+      },
+      filters: {
+        capitaliser: function (valeur) {
+          var t = valeur.split(' ');
+          for (var i = 0; i < t.length; i++) {
+            t[i] = t[i].slice(0, 1).toUpperCase() + t[i].slice(1);
+          }
+          return t.join(' ');
+        }
+      }
+    })
+  </script>
+</body>
+
+</html> -->
+
+<!-- CHAPITRE 49 filtres
+
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Squelette vue;JS</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"> </script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"> </script>
+</head>
+
+<body>
+  <div id="app">
+    <div>Text original : {{ texte }}</div>
+    <div>Text inversé : {{ texteInverse }}</div>
+
+    <input type="text" v-model="nom"> {{nom}}
+    <input type="text" v-model="prenom"> {{prenom }}
+    <input type="button" v-on:click="generate" value="click"></button>
+    {{ complet }}
+    </div>
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        texte: 'Propriétés calculées',
+        nom: '',
+        prenom: '',
+        complet: ''
+      },
+      methods: {
+        generate: function(){
+          // onpasse pas une propriété calculée pour afficher complet
+          this.complet = this.prenomNom; 
+        }
+      },
+      computed: {
+        texteInverse: function(){
+          return this.texte.split('').reverse().join('');
+        },
+        prenomNom: function(){
+          return this.prenom + ' ' + this.nom;
+        }
+      }
+    })
+  </script>
+</body>
+</html> -->
+
+<!-- CHAPITRE 51
+
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Squelette vue;JS</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"> </script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"> </script>
+</head>
+
+<body>
+  <div id="app">
+  <input type="text" v-model="texte"><br>
+  {{message}}
+
+    </div>
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        texte: '', 
+        message: '',
+      }, 
+      watch: {
+        //cette fonction recoit le texte entré par le user, et recherche le mot "ici"
+        texte: function(t){
+          //si la chaine 'ici' a été detecté 
+          if(t.indexOf('ici') != -1) {
+            //j'affecte un message a la propriété du message 
+            this.message = "le mot ici a été detecté"
+          } else { 
+            this.message = '';
+          }
+        }
+      } 
+    })
+  </script>
+</body>
+</html> -->
+
+<!-- CHAPITRE 52
+
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Squelette vue;JS</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"> </script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"> </script>
+</head>
+
+<body>
+  <div id="app">
+    <input type="text" v-model="texte"><br>
+    <div v-show="affiche"> frappe en cours...</div>
+  </div>
+  <script>
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        affiche: false,
+        texte: '',
+      },
+      watch: {
+        //la proprété observée est texte
+     //des que text va changer, la fonction va s'executer 
+     //fonction prend en entré le nouveau contenu (nouv)
+     texte: function(nouv) {
+       vm.affiche = true;
+       setTimeout(function() {
+         vm.affiche = false
+       },
+       3000);
+     }
+      }
+    })
+  </script>
+</body>
+
+</html> -->
+
+<!-- CHAPITRE 53 transitions  -->
+<!-- 
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Squelette vue;JS</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"> </script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"> </script>
+
+  <script>
+    function cacherAfficher(){
+      var ima = document.getElementById('chat');
+      var bout = document.getElementById('bout');
+      if(bout.innerHTML == 'Cacher'){
+        bout.innerHTML = 'Afficher';
+        ima.setAttribute('style', 'opacity: 0;');
+      }else {
+        bout.innerHTML = 'Cacher';
+        ima.setAttribute('style', 'opacity: 1;');
+
+      }
+
+    }
+  </script>
+</head>
+
+<body>
+ <button id="bout" onclick="cacherAfficher();">cacher</button>
+ <img src="images/petitchats.jpg" id="chat">
+</body>
+
+</html> -->
